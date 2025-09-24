@@ -1,0 +1,53 @@
+/* src/pages/Portaria.module.css */
+
+.portariaContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.portariaCard {
+    text-align: center;
+    padding: 60px 40px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.clockIcon {
+    font-size: 5rem;
+    color: var(--accent-primary);
+    margin-bottom: 24px;
+}
+
+.timeDisplay {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.dateDisplay {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+.portariaCard .btn {
+    font-size: 1.2rem;
+    padding: 14px 24px;
+}
+
+.linkRh {
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+.linkRh a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.linkRh a:hover {
+    color: var(--accent-primary);
+}
