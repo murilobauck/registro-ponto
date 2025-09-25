@@ -120,7 +120,7 @@ function Portaria() {
 
   const handleCaptureSuccess = (message) => {
     setMainStatus({ message, type: 'success' });
-    setTimeout(() => setMainStatus({ message: '', type: '' }), 4000);
+    setTimeout(() => setMainStatus({ message: '', type: '' }), 6500);
   };
 
   const dateOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
