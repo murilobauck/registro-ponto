@@ -15,7 +15,7 @@ const DEPARTAMENTOS = [
   "Pesquisa e Desenvolvimento (P&D)",
 ];
 
-const API_BASE_URL = "https://registro-ponto-bosch.vercel.app";
+const API_BASE_URL = "https://registro-ponto-bosch.vercel.app/api";
 
 function GestaoView({ onAddNew }) {
   const [funcionarios, setFuncionarios] = useState([]);
