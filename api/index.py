@@ -17,7 +17,7 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-@app.route("/funcionarios", methods=["GET"])
+@app.route("/api/funcionarios", methods=["GET"])
 def get_funcionarios():
     try:
         lista_funcionarios = database.buscar_todos_funcionarios()
@@ -26,7 +26,7 @@ def get_funcionarios():
         print(f"ERRO AO BUSCAR FUNCIONÁRIOS: {e}")
         return jsonify({"erro": "Erro interno ao buscar funcionários."}), 500
 
-@app.route("/cadastrar", methods=["POST"])
+@app.route("/api/cadastrar", methods=["POST"])
 def endpoint_cadastrar():
     nome = request.form.get("nome")
     departamento = request.form.get("departamento")
@@ -73,7 +73,7 @@ def endpoint_cadastrar():
         return jsonify({"sucesso": False, "erro": f"Ocorreu um erro interno: {e}"}), 500
 
 
-@app.route("/remover-funcionario/<int:id_funcionario>", methods=["DELETE"])
+@app.route("/api/remover-funcionario/<int:id_funcionario>", methods=["DELETE"])
 def endpoint_remover_funcionario(id_funcionario):
     try:
         dados_funcionario = database.buscar_dados_funcionario(id_funcionario)
@@ -176,7 +176,7 @@ def endpoint_registrar_ponto():
             500,
         )
 
-@app.route("/stats", methods=["GET"])
+@app.route("/api/stats", methods=["GET"])
 def get_stats():
     try:
         estatisticas = database.buscar_estatisticas()
