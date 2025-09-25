@@ -5,6 +5,18 @@ import { Link } from "react-router-dom";
 import "boxicons/css/boxicons.min.css";
 import styles from "./Rh.module.css";
 
+const DEPARTAMENTOS = [
+  "Diretoria/Executivo",
+  "Administrativo e Financeiro",
+  "Recursos Humanos",
+  "Marketing e Vendas",
+  "Operações",
+  "Tecnologia da Informação (TI)",
+  "Jurídico e Compliance",
+  "Atendimento ao Cliente",
+  "Pesquisa e Desenvolvimento (P&D)",
+];
+
 const API_BASE_URL = "https://annette-seminomadic-arctically.ngrok-free.dev";
 
 // --- Componente de Visão: Gestão de Funcionários (Sem alterações) ---
@@ -364,12 +376,23 @@ function CadastroView({ onCancel, onCadastroComplete }) {
         </div>
         <div className={styles.formGroup}>
           <label>Departamento</label>
-          <input
-            type="text"
-            id="departamento"
-            value={formData.departamento}
-            onChange={handleInputChange}
-          />
+          <select
+    id="departamento"
+    value={formData.departamento} // Conecta ao estado existente
+    onChange={handleInputChange}  // Usa a função de handler existente
+  >
+    {/* Opção inicial para guiar o usuário */}
+    <option value="" disabled>
+      Selecione um departamento...
+    </option>
+
+    {/* Mapeia a lista de departamentos para criar cada opção */}
+    {DEPARTAMENTOS.map((dept) => (
+      <option key={dept} value={dept}>
+        {dept}
+      </option>
+    ))}
+  </select>
         </div>
         <div className={styles.formGroup}>
           <label>Cargo</label>
