@@ -189,9 +189,6 @@ function GestaoView({ onAddNew }) {
                       </td>
                       <td>{func.admissao}</td>
                       <td className={styles.actionButtons}>
-                        <a title="Editar">
-                          <i className="bx bx-pencil"></i>
-                        </a>
                         <a
                           title="Remover"
                           onClick={() => handleDelete(func.id, func.nome)}
