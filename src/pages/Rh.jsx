@@ -26,6 +26,46 @@ function GestaoView({ onAddNew }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [refreshKey, setRefreshKey] = useState(0);
 
+  const [stats, setStats] = useState({
+    total: 0,
+    ativos: 0,
+    inativos: 0,
+    departamentos: 0,
+  });
+
+    useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      try {
+        // Busca tanto os funcionários quanto as estatísticas em paralelo
+        const [funcResponse, statsResponse] = await Promise.all([
+          fetch(`${API_BASE_URL}/funcionarios`, {
+            headers: { "ngrok-skip-browser-warning": "true" },
+          }),
+          fetch(`${API_BASE_URL}/stats`, {
+            headers: { "ngrok-skip-browser-warning": "true" },
+          }),
+        ]);
+
+        if (!funcResponse.ok) throw new Error("Falha ao buscar funcionários");
+        if (!statsResponse.ok) throw new Error("Falha ao buscar estatísticas");
+        
+        const funcData = await funcResponse.json();
+        const statsData = await statsResponse.json();
+        
+        setFuncionarios(funcData);
+        setStats(statsData);
+
+      } catch (error) {
+        console.error("Erro ao buscar dados:", error);
+        alert("Não foi possível carregar os dados do RH.");
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, [refreshKey]);
+
   useEffect(() => {
     async function fetchFuncionarios() {
       setLoading(true);
@@ -62,14 +102,6 @@ function GestaoView({ onAddNew }) {
       ),
     [funcionarios, searchTerm]
   );
-
-  const stats = useMemo(() => {
-    const total = funcionarios.length;
-    const ativos = funcionarios.filter((f) => f.status === "Ativo").length;
-    const inativos = total - ativos;
-    const departamentos = new Set(funcionarios.map((f) => f.departamento)).size;
-    return { total, ativos, inativos, departamentos };
-  }, [funcionarios]);
 
   const handleDelete = async (id, nome) => {
     if (!confirm(`Tem certeza que deseja remover "${nome}" (ID: ${id})?`))
