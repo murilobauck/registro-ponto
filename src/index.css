@@ -1,5 +1,3 @@
-/* src/index.css */
-
 :root {
     --bg-primary: #1a202c;
     --bg-secondary: #2d3748;
@@ -31,7 +29,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- ESTILOS GLOBAIS PARA COMPONENTES --- */
 .card {
     background: var(--bg-secondary);
     border-radius: var(--radius-lg);
@@ -62,7 +59,6 @@ body {
 .btn-success { background-color: var(--success-color); }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none;}
 
-/* --- ESTILOS GLOBAIS PARA O MODAL --- */
 .modal-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 1000; }
 .modal-content { background: var(--bg-secondary); padding: 24px; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); width: 95%; max-width: 420px; overflow: hidden; user-select: none; border: 1px solid var(--border-color); }
 .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; margin-bottom: 16px; }

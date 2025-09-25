@@ -1,14 +1,10 @@
-// src/pages/Portaria.jsx
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
-import styles from './Portaria.module.css'; // Importa o CSS Module, que está correto.
+import styles from './Portaria.module.css';
 
 const API_BASE_URL = "https://annette-seminomadic-arctically.ngrok-free.dev";
 
-// --- Componente Modal ---
-// A correção está aqui: usamos os nomes de classe globais diretamente.
 function RecognitionModal({ isOpen, onClose, onCaptureSuccess }) {
   const [status, setStatus] = useState({ message: 'Posicione seu rosto no centro.', type: 'info' });
   const [isLoading, setIsLoading] = useState(false);
@@ -25,7 +21,6 @@ function RecognitionModal({ isOpen, onClose, onCaptureSuccess }) {
       stopCamera();
     }
     return () => stopCamera();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   const startCamera = async () => {
@@ -89,9 +84,7 @@ function RecognitionModal({ isOpen, onClose, onCaptureSuccess }) {
   if (!isOpen) return null;
 
   return (
-    // CORREÇÃO: Usando "modal-backdrop" como string, pois é uma classe global do index.css
     <div className="modal-backdrop" onClick={onClose} style={{ display: isOpen ? 'flex' : 'none' }}>
-      {/* CORREÇÃO: Usando "modal-content" como string */}
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <h3>Registro de Ponto Facial</h3>
@@ -115,7 +108,6 @@ function RecognitionModal({ isOpen, onClose, onCaptureSuccess }) {
   );
 }
 
-// --- Componente da Página da Portaria ---
 function Portaria() {
   const [time, setTime] = useState(new Date());
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -134,7 +126,6 @@ function Portaria() {
   const dateOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
   
   return (
-    // CORREÇÃO: Aqui usamos o styles.portariaContainer, pois ele vem do Portaria.module.css
     <div className={styles.portariaContainer}>
       <main id="portaria-view" className={`card ${styles.portariaCard}`}>
         <i className={`bx bx-time-five ${styles.clockIcon}`}></i>

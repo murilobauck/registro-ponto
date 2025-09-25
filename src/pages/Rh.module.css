@@ -1,5 +1,3 @@
-/* src/pages/Rh.module.css */
-
 .rhContainer {
   padding: 32px;
   height: 100vh;
@@ -176,14 +174,6 @@
   font-weight: 500;
 }
 
-/* src/pages/Rh.module.css (após a alteração) */
-
-/* MUDANÇA 1: Aplicamos o estilo base tanto para INPUT quanto para SELECT.
-  Isso garante que ambos tenham o mesmo tamanho, cor, borda, etc.
-*/
-/* Em src/pages/Rh.module.css */
-
-/* Bloco de Estilos Unificados */
 .formGroup input,
 .formGroup select {
   width: 100%;
@@ -195,7 +185,6 @@
   color: var(--text-primary);
 }
 
-/* Bloco de Estilo Específico para o Select */
 .formGroup select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -206,77 +195,51 @@
   padding-right: 40px;
 }
 
-/* src/pages/Rh.module.css */
-
-/* Adicione esta nova classe para controlar o grupo de busca e botão.
-  Isso mantém o layout original em telas grandes.
-*/
 .toolbarActions {
   display: flex;
   gap: 16px;
   align-items: center;
 }
 
-/* Este é o bloco mágico! 🧙‍♂️
-
-  Ele só será aplicado em telas com largura máxima de 768px (tamanho comum para tablets e celulares).
-*/
-
 .cameraContainer {
   width: 100%;
   max-width: 400px;
-  /* Define uma largura máxima para o frame em telas grandes */
   margin: 16px auto;
-  /* Centraliza o contêiner */
   border-radius: 12px;
   overflow: hidden;
-  /* Garante que o vídeo/imagem respeite o border-radius */
   border: 1px solid var(--border-color);
   background-color: var(--bg-primary);
-  /* Um fundo para caso a câmera demore a carregar */
 }
 
-/* Regra para o vídeo preencher o contêiner sem distorcer */
 .cameraContainer video {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
-  /* Impede que a imagem da câmera fique achatada */
 }
 
-/* Regra para a imagem de preview preencher o contêiner */
 .capturePreview {
   width: 100%;
   display: block;
   border-radius: 12px;
-  /* A imagem precisa do seu próprio radius */
 }
 
 @media (max-width: 768px) {
   .tableToolbar {
     flex-direction: column;
-    /* Empilha o título e a área de ações */
     align-items: flex-start;
-    /* Alinha tudo à esquerda */
     gap: 16px;
-    /* Adiciona um espaço entre o título e a busca */
   }
 
   .toolbarActions {
     flex-direction: column;
-    /* Empilha o campo de busca e o botão */
     width: 100%;
-    /* Faz o contêiner ocupar toda a largura */
     align-items: stretch;
-    /* Estica os itens para terem a mesma largura */
   }
 
   .searchBox {
     min-width: 0;
-    /* Remove a largura mínima que atrapalhava */
     width: 100%;
-    /* Faz o campo de busca ocupar toda a largura */
   }
 
   .wizardButtons {

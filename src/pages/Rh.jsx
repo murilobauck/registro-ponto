@@ -1,5 +1,3 @@
-// src/pages/Rh.jsx
-
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import "boxicons/css/boxicons.min.css";
@@ -19,7 +17,6 @@ const DEPARTAMENTOS = [
 
 const API_BASE_URL = "https://annette-seminomadic-arctically.ngrok-free.dev";
 
-// --- Componente de Visão: Gestão de Funcionários (Sem alterações) ---
 function GestaoView({ onAddNew }) {
   const [funcionarios, setFuncionarios] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,7 +34,6 @@ function GestaoView({ onAddNew }) {
     async function fetchData() {
       setLoading(true);
       try {
-        // Busca tanto os funcionários quanto as estatísticas em paralelo
         const [funcResponse, statsResponse] = await Promise.all([
           fetch(`${API_BASE_URL}/funcionarios`, {
             headers: { "ngrok-skip-browser-warning": "true" },
@@ -260,7 +256,6 @@ function GestaoView({ onAddNew }) {
   );
 }
 
-// --- Componente de Visão: Cadastro de Funcionário ---
 function CadastroView({ onCancel, onCadastroComplete }) {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -276,17 +271,12 @@ function CadastroView({ onCancel, onCadastroComplete }) {
   const canvasRef = useRef(null);
   const activeStream = useRef(null);
 
-  // --- MUDANÇA PRINCIPAL AQUI ---
-  // Este useEffect observa a variável 'step'.
-  // Quando o 'step' muda para 2, a câmera é iniciada.
-  // Quando sai do 'step' 2, a câmera é desligada.
   useEffect(() => {
     if (step === 2) {
       startCamera();
     } else {
       stopCamera();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step]);
 
   const handleInputChange = (e) => {
@@ -328,7 +318,7 @@ function CadastroView({ onCancel, onCadastroComplete }) {
     context.scale(-1, 1);
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
     canvas.toBlob((blob) => setCapturedBlob(blob), "image/jpeg");
-    setStep(3); // Apenas muda o estado
+    setStep(3);
   };
 
   const handleSubmit = async () => {
@@ -378,7 +368,6 @@ function CadastroView({ onCancel, onCadastroComplete }) {
     }
   };
 
-  // A função goToStep agora apenas muda o estado
   const goToStep = (stepNumber) => {
     setStep(stepNumber);
   };
@@ -409,15 +398,13 @@ function CadastroView({ onCancel, onCadastroComplete }) {
           <label>Departamento</label>
           <select
             id="departamento"
-            value={formData.departamento} // Conecta ao estado existente
-            onChange={handleInputChange} // Usa a função de handler existente
+            value={formData.departamento}
+            onChange={handleInputChange}
           >
-            {/* Opção inicial para guiar o usuário */}
             <option value="" disabled>
               Selecione um departamento...
             </option>
 
-            {/* Mapeia a lista de departamentos para criar cada opção */}
             {DEPARTAMENTOS.map((dept) => (
               <option key={dept} value={dept}>
                 {dept}
@@ -499,7 +486,6 @@ function CadastroView({ onCancel, onCadastroComplete }) {
   );
 }
 
-// --- Componente Principal da Página RH ---
 function Rh() {
   const [view, setView] = useState("list");
   const [refreshKey, setRefreshKey] = useState(0);
