@@ -125,7 +125,7 @@ function GestaoView({ onAddNew }) {
       <div className="card">
         <div className={styles.tableToolbar}>
           <h3>Lista de Funcionários</h3>
-          <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+          <div className={styles.toolbarActions}>
             <input
               type="text"
               className={styles.searchBox}

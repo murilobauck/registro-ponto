@@ -1,84 +1,228 @@
 /* src/pages/Rh.module.css */
 
 .rhContainer {
-    padding: 32px;
-    height: 100vh;
-    overflow-y: auto;
+  padding: 32px;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .mainHeader {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .title {
-    font-size: 2.25rem;
-    font-weight: 700;
-    margin-bottom: 4px;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 4px;
 }
 
 .subtitle {
-    font-size: 1rem;
-    color: var(--text-secondary);
+  font-size: 1rem;
+  color: var(--text-secondary);
 }
 
 .statsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 24px;
-    margin-bottom: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
 }
 
 .statCard {
-    background: var(--bg-secondary);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-color);
-    padding: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.statCardInfo .value { font-size: 2.5rem; font-weight: 700; }
-.statCardInfo .label { font-size: 1rem; color: var(--text-secondary); }
-.statCardIcon { font-size: 2.5rem; color: var(--text-muted); }
+.statCardInfo .value {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
 
-.tableToolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
-.tableToolbar h3 { font-size: 1.5rem; font-weight: 600; }
+.statCardInfo .label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.statCardIcon {
+  font-size: 2.5rem;
+  color: var(--text-muted);
+}
+
+.tableToolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.tableToolbar h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 
 .searchBox {
-    background: var(--bg-primary); border: 1px solid var(--border-color);
-    color: var(--text-primary); border-radius: var(--radius-md);
-    padding: 10px 16px; font-size: 1rem; min-width: 300px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  font-size: 1rem;
+  min-width: 300px;
 }
-.searchBox::placeholder { color: var(--text-muted); }
 
-.tableResponsive { overflow-x: auto; }
-.dataTable { width: 100%; border-collapse: collapse; }
-.dataTable th, .dataTable td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border-color); white-space: nowrap; }
-.dataTable thead th { font-weight: 600; color: var(--text-secondary); font-size: 0.875rem; text-transform: uppercase; }
+.searchBox::placeholder {
+  color: var(--text-muted);
+}
 
-.employeeCell { display: flex; align-items: center; gap: 16px; }
+.tableResponsive {
+  overflow-x: auto;
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dataTable th,
+.dataTable td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.dataTable thead th {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.employeeCell {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .avatarSm {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: var(--accent-primary); color: white;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 600; flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  flex-shrink: 0;
 }
-.employeeCell strong { font-weight: 600; }
-.employeeCell small { color: var(--text-muted); }
 
-.statusBadge { padding: 4px 12px; border-radius: 16px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
-.statusBadge.ativo { background-color: rgba(72, 187, 120, 0.15); color: var(--success-color); }
-.statusBadge.inativo { background-color: rgba(113, 128, 150, 0.2); color: var(--text-secondary); }
+.employeeCell strong {
+  font-weight: 600;
+}
 
-.actionButtons a { color: var(--text-secondary); margin: 0 8px; font-size: 1.25rem; cursor: pointer; transition: color 0.2s ease; }
-.actionButtons a:hover { color: var(--accent-primary); }
+.employeeCell small {
+  color: var(--text-muted);
+}
 
-.wizardButtons { display: flex; justify-content: space-between; margin-top: 24px; }
-.formGroup { margin-bottom: 20px; }
-.formGroup label { display: block; margin-bottom: 8px; font-weight: 500; }
-.formGroup input { 
-    width: 100%; padding: 12px; border: 1px solid var(--border-color); 
-    border-radius: var(--radius-md); font-size: 1rem; 
-    background: var(--bg-primary); color: var(--text-primary);
+.statusBadge {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.statusBadge.ativo {
+  background-color: rgba(72, 187, 120, 0.15);
+  color: var(--success-color);
+}
+
+.statusBadge.inativo {
+  background-color: rgba(113, 128, 150, 0.2);
+  color: var(--text-secondary);
+}
+
+.actionButtons a {
+  color: var(--text-secondary);
+  margin: 0 8px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.actionButtons a:hover {
+  color: var(--accent-primary);
+}
+
+.wizardButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* src/pages/Rh.module.css */
+
+/* Adicione esta nova classe para controlar o grupo de busca e botão.
+  Isso mantém o layout original em telas grandes.
+*/
+.toolbarActions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Este é o bloco mágico! 🧙‍♂️
+  Ele só será aplicado em telas com largura máxima de 768px (tamanho comum para tablets e celulares).
+*/
+@media (max-width: 768px) {
+  .tableToolbar {
+    flex-direction: column;
+    /* Empilha o título e a área de ações */
+    align-items: flex-start;
+    /* Alinha tudo à esquerda */
+    gap: 16px;
+    /* Adiciona um espaço entre o título e a busca */
+  }
+
+  .toolbarActions {
+    flex-direction: column;
+    /* Empilha o campo de busca e o botão */
+    width: 100%;
+    /* Faz o contêiner ocupar toda a largura */
+    align-items: stretch;
+    /* Estica os itens para terem a mesma largura */
+  }
+
+  .searchBox {
+    min-width: 0;
+    /* Remove a largura mínima que atrapalhava */
+    width: 100%;
+    /* Faz o campo de busca ocupar toda a largura */
+  }
 }
