@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import styles from './Portaria.module.css';
 
-const API_BASE_URL = "http://127.0.0.1:5000";
+const API_BASE_URL = " murilobauck.pythonanywhere.com";
 
 function RecognitionModal({ isOpen, onClose, onCaptureSuccess }) {
   const [status, setStatus] = useState({ message: 'Posicione seu rosto no centro.', type: 'info' });
