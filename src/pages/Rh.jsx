@@ -33,7 +33,7 @@ function GestaoView({ onAddNew }) {
     departamentos: 0,
   });
 
-    useEffect(() => {
+  useEffect(() => {
     async function fetchData() {
       setLoading(true);
       try {
@@ -49,13 +49,12 @@ function GestaoView({ onAddNew }) {
 
         if (!funcResponse.ok) throw new Error("Falha ao buscar funcionários");
         if (!statsResponse.ok) throw new Error("Falha ao buscar estatísticas");
-        
+
         const funcData = await funcResponse.json();
         const statsData = await statsResponse.json();
-        
+
         setFuncionarios(funcData);
         setStats(statsData);
-
       } catch (error) {
         console.error("Erro ao buscar dados:", error);
         alert("Não foi possível carregar os dados do RH.");
@@ -409,22 +408,22 @@ function CadastroView({ onCancel, onCadastroComplete }) {
         <div className={styles.formGroup}>
           <label>Departamento</label>
           <select
-    id="departamento"
-    value={formData.departamento} // Conecta ao estado existente
-    onChange={handleInputChange}  // Usa a função de handler existente
-  >
-    {/* Opção inicial para guiar o usuário */}
-    <option value="" disabled>
-      Selecione um departamento...
-    </option>
+            id="departamento"
+            value={formData.departamento} // Conecta ao estado existente
+            onChange={handleInputChange} // Usa a função de handler existente
+          >
+            {/* Opção inicial para guiar o usuário */}
+            <option value="" disabled>
+              Selecione um departamento...
+            </option>
 
-    {/* Mapeia a lista de departamentos para criar cada opção */}
-    {DEPARTAMENTOS.map((dept) => (
-      <option key={dept} value={dept}>
-        {dept}
-      </option>
-    ))}
-  </select>
+            {/* Mapeia a lista de departamentos para criar cada opção */}
+            {DEPARTAMENTOS.map((dept) => (
+              <option key={dept} value={dept}>
+                {dept}
+              </option>
+            ))}
+          </select>
         </div>
         <div className={styles.formGroup}>
           <label>Cargo</label>
@@ -447,9 +446,11 @@ function CadastroView({ onCancel, onCadastroComplete }) {
 
       <div style={{ display: step === 2 ? "block" : "none" }}>
         <h4>Captura Facial</h4>
-        <div className="camera-feed">
-          <video ref={videoRef} autoPlay playsInline></video>
-          <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
+        <div className={styles.cameraContainer}>
+          <div className="camera-feed">
+            <video ref={videoRef} autoPlay playsInline></video>
+            <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
+          </div>
         </div>
         <div className={styles.wizardButtons}>
           <button className="btn" onClick={() => goToStep(1)}>
@@ -463,18 +464,15 @@ function CadastroView({ onCancel, onCadastroComplete }) {
 
       <div style={{ display: step === 3 ? "block" : "none" }}>
         <h4>Confirmação</h4>
-        {capturedBlob && (
-          <img
-            src={URL.createObjectURL(capturedBlob)}
-            alt="Preview"
-            style={{
-              maxWidth: "300px",
-              borderRadius: "8px",
-              margin: "16px auto",
-              display: "block",
-            }}
-          />
-        )}
+        <div className={styles.cameraContainer}>
+          {capturedBlob && (
+            <img
+              src={URL.createObjectURL(capturedBlob)}
+              alt="Preview"
+              className={styles.capturePreview}
+            />
+          )}
+        </div>
         <div className={styles.wizardButtons}>
           <button className="btn" onClick={() => goToStep(2)}>
             Tirar Nova Foto
