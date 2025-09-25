@@ -1,0 +1,3 @@
+AWS_REGION = "us-east-1"
+REKOGNITION_COLLECTION_ID = "funcionarios_empresa"
+FACE_MATCH_THRESHOLD = 90.0
