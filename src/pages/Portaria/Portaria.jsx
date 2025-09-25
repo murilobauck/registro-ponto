@@ -69,7 +69,7 @@ function RecognitionModal({ isOpen, onClose, onCaptureSuccess }) {
             const data = await response.json();
             if (data.sucesso) {
                 onCaptureSuccess(data.mensagem);
-                setTimeout(onClose, 2000);
+                setTimeout(onClose, 1500);
             } else {
                 setStatus({ message: data.mensagem, type: "error" });
                 setIsLoading(false);
