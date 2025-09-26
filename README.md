@@ -8,7 +8,7 @@ Acesse a aplicação em funcionamento: [https://registro-ponto-seven.vercel.app]
 
 ## 📖 Sobre o Projeto
 
-O **Registro de Ponto** é uma aplicação web que permite aos usuários registrar seus horários de trabalho de forma digital e eficiente. O sistema oferece uma interface intuitiva para controle de entrada e saída, facilitando o acompanhamento da jornada de trabalho.
+O **Registro de Ponto** é uma aplicação web que permite aos usuários registrar seus horários de trabalho de forma digital e eficiente. O sistema oferece uma interface intuitiva para controle de entrada e saída, com módulos específicos para diferentes tipos de usuários.
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -33,22 +33,49 @@ O **Registro de Ponto** é uma aplicação web que permite aos usuários registr
 
 ```
 registro-ponto/
-├── src/                    # Código fonte da aplicação
-├── index.html             # Página HTML principal
-├── package.json           # Dependências e scripts
-├── vite.config.js         # Configuração do Vite
-├── eslint.config.js       # Configuração do ESLint
-├── vercel.json           # Configuração para deploy na Vercel
-└── .gitignore            # Arquivos ignorados pelo Git
+├── src/                              # Código fonte da aplicação
+│   ├── App.jsx                       # Componente principal da aplicação
+│   ├── main.jsx                      # Ponto de entrada da aplicação React
+│   ├── index.css                     # Estilos globais da aplicação
+│   └── pages/                        # Páginas da aplicação organizadas por módulos
+│       ├── Portaria/                 # Módulo de controle de portaria
+│       │   ├── Portaria.jsx          # Componente da página de portaria
+│       │   └── Portaria.module.css   # Estilos específicos da portaria
+│       └── Rh/                       # Módulo de recursos humanos
+│           ├── Rh.jsx                # Componente da página de RH
+│           └── Rh.module.css         # Estilos específicos do RH
+├── index.html                        # Página HTML principal
+├── package.json                      # Dependências e scripts
+├── vite.config.js                    # Configuração do Vite
+├── eslint.config.js                  # Configuração do ESLint
+├── vercel.json                       # Configuração para deploy na Vercel
+└── .gitignore                        # Arquivos ignorados pelo Git
 ```
+
+### 🗂️ Descrição dos Arquivos Principais
+
+#### 📱 Aplicação Principal
+- **`src/App.jsx`** - Componente raiz que gerencia a estrutura geral da aplicação
+- **`src/main.jsx`** - Arquivo de entrada que renderiza a aplicação no DOM
+- **`src/index.css`** - Folha de estilos global com variáveis CSS e estilos base
+
+#### 🏢 Módulo Portaria
+- **`src/pages/Portaria/Portaria.jsx`** - Interface para controle de acesso e registro de ponto na portaria
+- **`src/pages/Portaria/Portaria.module.css`** - Estilos modulares específicos da portaria
+
+#### 👥 Módulo RH
+- **`src/pages/Rh/Rh.jsx`** - Interface administrativa para gestão de funcionários e relatórios
+- **`src/pages/Rh/Rh.module.css`** - Estilos modulares específicos do setor de RH
 
 ## 🛠️ Funcionalidades
 
 - ✅ **Registro de Entrada e Saída** - Controle preciso de horários
 - 🔐 **Autenticação Segura** - Integração com AWS Amplify
 - 📱 **Interface Responsiva** - Funciona em desktop e mobile
-- 🎯 **Verificação Biométrica** - Usando AWS Liveness Detection
+- 🎯 **Verificação Biométrica** - Usando AWS Rekognition
 - 📊 **Controle de Jornada** - Acompanhamento de horas trabalhadas
+- 🏢 **Módulo Portaria** - Interface específica para controle de acesso
+- 👥 **Módulo RH** - Painel administrativo para gestão de funcionários
 - 🌐 **Deploy Automático** - Hospedado na Vercel
 
 ## 🚀 Como Executar
@@ -94,12 +121,19 @@ npm run dev
 
 ## 🏗️ Arquitetura
 
-O projeto utiliza uma arquitetura moderna baseada em:
+O projeto utiliza uma arquitetura moderna e modular baseada em:
 
 - **React** para a interface do usuário
 - **AWS Amplify** para backend-as-a-service
 - **Vite** para bundling e desenvolvimento rápido
 - **Vercel** para hospedagem e CI/CD
+- **CSS Modules** para estilização componentizada
+
+### 🎨 Padrões de Organização
+
+- **Componentes por Módulo** - Cada seção (Portaria/RH) tem seus próprios componentes
+- **CSS Modules** - Estilos isolados por componente evitando conflitos
+- **Separação de Responsabilidades** - Módulos específicos para diferentes tipos de usuários
 
 ## 📱 Responsividade
 
@@ -119,8 +153,5 @@ A aplicação é totalmente responsiva, adaptando-se a diferentes tamanhos de te
 
 O projeto está configurado para deploy automático na Vercel. Qualquer push para a branch `master` dispara um novo deploy.
 
-## 👨‍💻 Autor
-
-- **Murilo Bauck** - [@murilobauck](https://github.com/murilobauck)
 
 ⭐ Se você achou este projeto útil, considere dar uma estrela no repositório!
