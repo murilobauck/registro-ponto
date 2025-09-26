@@ -20,7 +20,6 @@ O **Registro de Ponto** é uma aplicação web que permite aos usuários registr
 ### Cloud & Autenticação
 - **AWS Amplify 5.3.27** - Plataforma de desenvolvimento full-stack
 - **AWS Amplify UI React 5.3.3** - Componentes UI pré-construídos
-- **AWS Amplify UI React Liveness 1.0.7** - Verificação de presença biométrica
 
 ### Estilo & Ícones
 - **Boxicons 2.1.4** - Biblioteca de ícones
