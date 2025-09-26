@@ -145,7 +145,7 @@ A aplicação é totalmente responsiva, adaptando-se a diferentes tamanhos de te
 ## 🔒 Segurança
 
 - Autenticação via AWS Cognito
-- Verificação biométrica com Liveness Detection
+- Verificação biométrica com AWS Rekognition
 - Comunicação segura via HTTPS
 - Validação de dados no frontend e backend
 
